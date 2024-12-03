@@ -1,17 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void fill_matrix(M,a,b)
+
+int randrange ()
 {
     int n = rand() % 100;
-    int negative = rand() % 2;
+    int negative = rand() %2;
     if (negative == 1)
     {
         n *= -1;
     }
 
-    for 
+    return n;
 }
+
+void fill_matrix( int **M,int a,int b)
+{
+    for (int i = 0; i<a; i++)
+    {
+        for (int j = 0; j<b; j++)
+        {
+            M[i][j] = randrange();
+        }
+        
+    }
+}
+
+void print_matrix(int **M,int a,int b)
+{
+    for (int i = 0; i<a; i++)
+    {
+        for (int j = 0; j<b; j++)
+        {
+            printf("%d ", M[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 
 void main()
 {
@@ -43,5 +69,10 @@ void main()
         C[i] == calloc(p,sizeof(int));
     }
 
+    fill_matrix(A,m,n);
+    fill_matrix(B,n,p);
+
+    print_matrix(A,m,n);
+    print_matrix(B,n,p);
 
 }
